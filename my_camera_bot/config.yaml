@@ -1,5 +1,5 @@
 name: "Camera Bot"
-version: "1.0.4"
+version: "1.0.0"
 slug: "camera_bot"
 description: "Discord bot for camera monitoring with AI analysis"
 url: "https://github.com/craigst/my_camera_bot"
