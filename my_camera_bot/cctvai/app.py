@@ -1,12 +1,7 @@
-import requests
-import base64
-from PIL import Image
-import io
-import json
-import os
-import discord
-from discord.ext import commands
-from settings import *
+    'front': '/api/Front/latest.jpg',
+    'back': '/api/WShop/latest.jpg',
+    'shed': '/api/Back/latest.jpg',
+    'road': '/api/Road/latest.jpg'
 
 intents = discord.Intents.default()
 intents.message_content = True
