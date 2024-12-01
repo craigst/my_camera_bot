@@ -1,0 +1,31 @@
+name: "Discord Camera Bot"
+version: "1.0.3"
+slug: "camera_bot"
+description: "Discord bot for camera monitoring with AI analysis"
+url: "https://github.com/craigst/my_camera_bot"
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+startup: application
+boot: auto
+options:
+  discord_token: ""
+  user_id: ""
+  api_key: ""
+  ollama_server: "http://localhost:11434"
+  camera_server: "http://localhost:8123"
+  camera_endpoints:
+    front: "/api/camera_proxy/camera.front_door"
+    back: "/api/camera_proxy/camera.back_door"
+    shed: "/api/camera_proxy/camera.shed"
+    road: "/api/camera_proxy/camera.road"
+schema:
+  discord_token: str
+  user_id: str
+  api_key: str
+  ollama_server: str
+  camera_server: str
+  camera_endpoints: dict
