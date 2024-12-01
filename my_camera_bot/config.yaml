@@ -1,8 +1,8 @@
 name: "Camera Bot"
 version: "1.0.0"
 slug: "camera_bot"
-description: "Discord Camera Bot with AI Analysis"
-url: "https://github.com/yourusername/my_camera_bot"
+description: "A powerful Telegram bot that turns your device into a smart surveillance camera"
+url: "https://github.com/craigst/my_camera_bot"
 arch:
   - armhf
   - armv7
@@ -13,6 +13,7 @@ startup: application
 boot: auto
 ports:
   9000/tcp: 9000
+panel_icon: mdi:camera-wireless
 options:
   discord_token: ""
   user_id: ""
