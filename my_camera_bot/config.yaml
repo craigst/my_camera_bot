@@ -1,4 +1,4 @@
-name: "Discord Camera Bot"
+name: "Camera Bot"
 version: "1.0.4"
 slug: "camera_bot"
 description: "Discord bot for camera monitoring with AI analysis"
