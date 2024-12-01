@@ -7,13 +7,7 @@ import os
 import discord
 import logging
 from discord.ext import commands
-from settings import *
 
-if not DISCORD_TOKEN:
-    raise ValueError("Discord token is required in addon configuration")
-
-if not USER_ID:
-    raise ValueError("User ID is required in addon configuration")
 # Set up logging
 logging.basicConfig(
     level=logging.INFO,
@@ -22,42 +16,20 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Configuration handling with validation
+config_path = '/data/options.json'
+
 try:
-    # Read configuration from Home Assistant options.json
-    config_path = '/data/options.json'
+    with open(config_path, 'r') as config_file:
+        config = json.load(config_file)
     
-    if os.path.exists(config_path):
-        with open(config_path, 'r') as config_file:
-            config = json.load(config_file)
-    else:
-        config = {}
-        
     logger.info("Loaded configuration: %s", config)
     
-    DISCORD_TOKEN = config.get('discord_token')
-    if not DISCORD_TOKEN:
-        raise ValueError("Discord token is missing")
-        
-    USER_ID = config.get('user_id')
-    if not USER_ID:
-        raise ValueError("User ID is missing")
-    USER_ID = int(str(USER_ID))
-    
-    API_KEY = config.get('api_key')
-    if not API_KEY:
-        raise ValueError("API key is missing")
-        
-    OLLAMA_SERVER = config.get('ollama_server')
-    if not OLLAMA_SERVER:
-        raise ValueError("Ollama server URL is missing")
-        
-    CAMERA_SERVER = config.get('camera_server')
-    if not CAMERA_SERVER:
-        raise ValueError("Camera server URL is missing")
-        
-    CAMERA_ENDPOINTS = config.get('camera_endpoints')
-    if not CAMERA_ENDPOINTS:
-        raise ValueError("Camera endpoints are missing")
+    DISCORD_TOKEN = config['discord_token']
+    USER_ID = int(str(config['user_id']))
+    API_KEY = config['api_key']
+    OLLAMA_SERVER = config['ollama_server']
+    CAMERA_SERVER = config['camera_server']
+    CAMERA_ENDPOINTS = config['camera_endpoints']
     
     logger.info("Configuration validated successfully")
     
@@ -177,5 +149,8 @@ async def back(ctx):
         logger.error(f"Error in back command: {str(e)}")
         await ctx.send(f"Error processing back cameras: {str(e)}")
 
-if __name__ == "__main__":
+def main():
     bot.run(DISCORD_TOKEN)
+
+if __name__ == "__main__":
+    main()
