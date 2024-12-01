@@ -1,8 +1,8 @@
-name: "Camera Bot"
-version: "1.0.4"
+name: "Home Assistant Camera Bot"
+version: "1.0.0"
 slug: "camera_bot"
 description: "Discord bot for camera monitoring with AI analysis"
-url: "https://github.com/craigst/my_camera_bot"
+url: "https://github.com/yourusername/my_camera_bot"
 arch:
   - armhf
   - armv7
@@ -11,6 +11,7 @@ arch:
   - i386
 startup: application
 boot: auto
+init: false
 options:
   discord_token: ""
   user_id: ""
@@ -29,3 +30,4 @@ schema:
   ollama_server: str
   camera_server: str
   camera_endpoints: dict
+
