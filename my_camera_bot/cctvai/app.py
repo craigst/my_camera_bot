@@ -1,7 +1,30 @@
-    'front': '/api/Front/latest.jpg',
-    'back': '/api/WShop/latest.jpg',
-    'shed': '/api/Back/latest.jpg',
-    'road': '/api/Road/latest.jpg'
+import requests
+import base64
+from PIL import Image
+import io
+import json
+import os
+import discord
+from discord.ext import commands
+
+# Get config from Home Assistant
+config = eval(os.environ.get('OPTIONS', '{}'))
+
+# Configuration from Home Assistant options
+DISCORD_TOKEN = config.get('discord_token')
+USER_ID = int(config.get('user_id'))
+API_KEY = config.get('api_key')
+OLLAMA_SERVER = config.get('ollama_server')
+CAMERA_SERVER = config.get('camera_server')
+CAMERA_ENDPOINTS = config.get('camera_endpoints')
+
+# Camera groups
+FRONT_CAMERAS = ['front', 'road']
+BACK_CAMERAS = ['back', 'shed']
+ALL_CAMERAS = ['front', 'back', 'shed', 'road']
+
+# Rest of your existing code...
+
 
 intents = discord.Intents.default()
 intents.message_content = True
