@@ -12,8 +12,8 @@ arch:
 startup: application
 boot: auto
 options:
-  discord_token: ""
   user_id: ""
+  discord_token: ""
   api_key: ""
   ollama_server: "http://localhost:11434"
   camera_server: "http://localhost:8123"
@@ -23,8 +23,8 @@ options:
     shed: "/api/camera_proxy/camera.shed"
     road: "/api/camera_proxy/camera.road"
 schema:
-  discord_token: str
   user_id: str
+  discord_token: str
   api_key: str
   ollama_server: str
   camera_server: str
